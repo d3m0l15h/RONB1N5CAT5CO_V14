@@ -1,4 +1,4 @@
-const { ChatInputCommandInteraction, SlashCommandBuilder } = require('discord.js');
+const { ChatInputCommandInteraction, SlashCommandBuilder, Client } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -7,6 +7,7 @@ module.exports = {
   /**
      *
      * @param {ChatInputCommandInteraction} interaction
+     * @param {Client} client
      */
   execute(interaction, client) {
     interaction.reply({ content: `🏓 PONG! \`${client.ws.ping}ms\`` });

@@ -22,11 +22,12 @@ module.exports = {
             ephemeral: true
         });
 
-        const subCommand = interaction.options.getSubcommand();
+        const subCommand = interaction.options.getSubcommand(false);
         
         if(subCommand) {
             const subCommandFile = client.subCommands.get(`${interaction.commandName}.${subCommand}`);
-            if(!subCommandFile) return interaction.reply({
+            if(!subCommandFile) 
+            return interaction.reply({
                 content: "This subcommand is outdated.",
                 ephemeral: true
             });
