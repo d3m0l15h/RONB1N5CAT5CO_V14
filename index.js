@@ -14,6 +14,7 @@ const client = new Client({
 ////////////////////////////////
 client.commands = new Collection();
 client.events = new Collection();
+client.subCommands = new Collection();
 ////////////////////////////////
 const { loadEvents } = require('./Structures/Handlers/EventHandler');
 loadEvents(client);
