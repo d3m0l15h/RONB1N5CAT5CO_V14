@@ -1,5 +1,5 @@
 const Canvas = require('canvas');
-const Discord = require('discord.js');
+const { AttachmentBuilder } = require('discord.js');
 const background = 'https://i.imgur.com/Ubo3Vbq.jpg';
 Canvas.registerFont('upheavtt.ttf', {family: 'Unpheaval'});
 
@@ -18,7 +18,7 @@ const av = {
 const generateImageWelcome = async (member) => {
     let username = member.user.username;
     let discrim = member.user.discriminator;
-    let avatarURL = member.user.displayAvatarURL({format: 'png', dynamic: false, size:  av.size});
+    let avatarURL = member.user.displayAvatarURL({extension: 'png', size: av.size});
 
     const canvas = Canvas.createCanvas(dim.width, dim.height);
     const ctx = canvas.getContext('2d');
@@ -55,7 +55,7 @@ const generateImageWelcome = async (member) => {
     ctx.font = '40px Unpheaval';
     ctx.fillText('to the server', dim.width / 2, dim.height - dim.margin - 50);
 
-    const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome.png');
+    const attachment = new AttachmentBuilder(canvas.toBuffer(), { name: 'welcome.png' });
 
     return attachment;
 }
