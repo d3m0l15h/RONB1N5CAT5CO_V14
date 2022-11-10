@@ -4,12 +4,29 @@ const Token = process.env.Token;
 const Database = process.env.Database;
 ////////////////////////////////
 const { Client, Collection, GatewayIntentBits, Partials } = require('discord.js');
-const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
-const { User, Message, GuildMember, ThreadMember} = Partials;
 
 const client = new Client({ 
-    intents: [Guilds, GuildMembers, GuildMessages],
-    partials: [User, Message, GuildMember, ThreadMember] 
+    intents: [
+        GatewayIntentBits.Guilds, 
+        GatewayIntentBits.GuildMembers, 
+        GatewayIntentBits.GuildInvites,
+        GatewayIntentBits.GuildBans,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildMessageReactions,
+        GatewayIntentBits.GuildEmojisAndStickers,
+        GatewayIntentBits.GuildMessageTyping,
+        GatewayIntentBits.GuildWebhooks,
+        GatewayIntentBits.GuildVoiceStates
+    ],
+    partials: [
+        Partials.Channel,
+        Partials.GuildMember,
+        Partials.GuildScheduledEvent,
+        Partials.Message,
+        Partials.Reaction,
+        Partials.ThreadMember,
+        Partials.User
+    ] 
 });
 ////////////////////////////////
 client.commands = new Collection();
