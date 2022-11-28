@@ -37,6 +37,7 @@ const client = new Client({
 client.commands = new Collection();
 client.events = new Collection();
 client.subCommands = new Collection();
+client.subCommandGroups = new Collection();
 client.buttons = new Collection();
 client.distube = new DisTube(client, {
     emitNewSongOnly: true,

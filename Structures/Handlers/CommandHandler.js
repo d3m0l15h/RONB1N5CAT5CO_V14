@@ -5,6 +5,7 @@ async function loadCommands(client) {
 
     await client.commands.clear();
     await client.subCommands.clear();
+    await client.subCommandGroups.clear();
 
     let commandsArray = [];
 
@@ -12,6 +13,9 @@ async function loadCommands(client) {
 
     Files.forEach((file) => {
         const command = require(file);
+
+        if(command.subCommandGroup)
+        return client.subCommandGroups.set(command.subCommandGroup, command);
 
         if(command.subCommand)
         return client.subCommands.set(command.subCommand, command);

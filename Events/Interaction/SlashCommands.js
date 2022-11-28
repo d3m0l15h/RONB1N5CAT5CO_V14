@@ -19,15 +19,30 @@ module.exports = {
             });
 
             const subCommand = interaction.options.getSubcommand(false);
+            const subCommandGroup = interaction.options.getSubcommandGroup(false);
 
-            if(subCommand) {
+            if(subCommandGroup) {
+                const subCommandGroupFile = client.subCommandGroups.get(`${interaction.commandName}.${subCommandGroup}.${subCommand}`);
+
+                if(!subCommandGroupFile) 
+                return interaction.reply({
+                    content: "This subcommand group is outdated.",
+                    ephemeral: true
+                });
+
+                subCommandGroupFile.execute(interaction, client)
+            }
+            else if(subCommand) {
                 const subCommandFile = client.subCommands.get(`${interaction.commandName}.${subCommand}`);
+
                 if(!subCommandFile) 
                 return interaction.reply({
                     content: "This subcommand is outdated.",
                     ephemeral: true
                 });
+
                 subCommandFile.execute(interaction, client);
+
             } else command.execute(interaction, client);
 
         } else if(interaction.isButton()) {
