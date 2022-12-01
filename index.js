@@ -2,7 +2,6 @@ require('dotenv').config();
 ////////////////////////////////
 const Token = process.env.Token;
 const Database = process.env.Database;
-
 ////////////////////////////////
 const { Client, Collection, GatewayIntentBits, Partials } = require('discord.js');
 const { DisTube } = require('distube');
