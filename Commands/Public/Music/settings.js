@@ -117,7 +117,7 @@ module.exports = {
 
                     const buttonList = [button1, button2]
 
-                    pagination(interaction, pages, buttonList);
+                    return pagination(interaction, pages, buttonList);
 
                 }
             }
