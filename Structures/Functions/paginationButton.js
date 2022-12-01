@@ -82,6 +82,6 @@ const {
     }
   });
   
-    return curPage;
+    curPage;
   };
   module.exports = paginationEmbed;
