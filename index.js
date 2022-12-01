@@ -49,7 +49,6 @@ client.distube = new DisTube(client, {
     plugins: [
         new SpotifyPlugin({ emitEventsAfterFetching: true }),
         new SoundCloudPlugin(),
-        new YtDlpPlugin()
     ]
 });
 module.exports = client;
