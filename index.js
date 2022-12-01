@@ -7,7 +7,6 @@ const { Client, Collection, GatewayIntentBits, Partials } = require('discord.js'
 const { DisTube } = require('distube');
 const { SoundCloudPlugin } = require('@distube/soundcloud');
 const { SpotifyPlugin } = require('@distube/spotify');
-const { YtDlpPlugin } = require('@distube/yt-dlp');
 ////////////////////////////////
 const client = new Client({
     intents: [
