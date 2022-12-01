@@ -19,7 +19,7 @@ module.exports = {
         Avatar = new EmbedBuilder()
         .setColor("DarkButNotBlack")
         .setAuthor({name: Member.tag, iconURL: Member.avatarURL({size: 512})})
-        .setDescription(`Avatar của thằng mặt cặc **${Member.tag}**`)
+        .setDescription(`Avatar of **${Member.tag}**`)
         .setImage(Member.avatarURL({size: 1024}))
             
         await interaction.reply({embeds: [Avatar]});
