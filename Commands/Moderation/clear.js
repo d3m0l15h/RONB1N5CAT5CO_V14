@@ -23,7 +23,7 @@ module.exports = {
         const Amount = options.getNumber('amount');
         const Target = options.getUser('target');
 
-        const Messages = await channel.messages.fetch();
+        const Messages = await channel.messages.fetch()                   
 
         const Response = new EmbedBuilder().setColor("DarkVividPink");
 
@@ -31,7 +31,7 @@ module.exports = {
             let i = 0;
             const filtered = [];
             Messages.filter(m => {
-                if(m.author.id === Target.id && Amount > i) {
+                if(m.author.id === Target.id && Amount > i && m.pinned !== true) {
                     filtered.push(m);
                     i++;
                 }
@@ -43,7 +43,16 @@ module.exports = {
             });
         }
         else {
-            await channel.bulkDelete(Amount, true).then(messages => {
+            let i = 0;
+            const filtered = [];
+            Messages.filter(m => {
+                if(m.pinned !== true && Amount > i) {
+                    filtered.push(m);
+                    i++;
+                }
+            });
+
+            await channel.bulkDelete(filtered, true).then(messages => {
                 Response.setDescription(`🧹 Cleared ${messages.size} from \`${channel.name}\`.`);
                 interaction.reply({embeds: [Response], ephemeral: true })
             });
