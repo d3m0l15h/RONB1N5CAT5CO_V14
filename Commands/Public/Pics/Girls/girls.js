@@ -8,7 +8,7 @@ module.exports = {
     async execute(interaction, client) { 
         let randOffset = Math.floor(Math.random() * (956 / 20))
 
-        const data = await fetch(`https://api.tumblr.com/v2/blog/gaixinhchonloc.com/posts/photo?api_key=${girlcollections_key}&limit=20&offset=${randOffset}`).then(res => res.json());
+        let data = await fetch(`https://api.tumblr.com/v2/blog/gaixinhchonloc.com/posts/photo?api_key=${girlcollections_key}&limit=20&offset=${randOffset}`).then(res => res.json());
 
         let randImg = Math.floor(Math.random() * 20)
 
