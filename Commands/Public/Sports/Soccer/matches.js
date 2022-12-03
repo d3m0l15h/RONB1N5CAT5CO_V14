@@ -44,7 +44,7 @@ function matchesQueue(matches) {
             .setTitle(`${matches[i].competition.name}`)
             .setThumbnail(matches[i].competition.emblem)
             .setDescription(`**${matches[i].stage}** - **${matches[i].group}**
-            \n${flag(matches[i].homeTeam.name) | `⚽`} **${matches[i].homeTeam.tla}** - **${matches[i].awayTeam.tla}** ${flag(matches[i].awayTeam.name) | `⚽`}`)
+            \n${flag(matches[i].homeTeam.name)} **${matches[i].homeTeam.tla}** - **${matches[i].awayTeam.tla}** ${flag(matches[i].awayTeam.name)}`)
             .addFields(
                 { name: 'START TIME', value: `${(new Date(matches[i].utcDate)).toString()}` },
                 { name: 'SCORE', value: `**${matches[i].score.fullTime.home | 0}** - **${matches[i].score.fullTime.away | 0}**`, inline: true},
