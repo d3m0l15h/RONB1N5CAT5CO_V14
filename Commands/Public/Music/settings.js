@@ -21,9 +21,9 @@ module.exports = {
         const queue = await client.distube.getQueue(VoiceChannel);
 
         if (!queue) return interaction.reply({ 
-            embeds: new EmbedBuilder()
+            embeds: [new EmbedBuilder()
                 .setColor('Orange')
-                .setDescription("There is nothing in the queue right now!"),
+                .setDescription("There is nothing in the queue right now!")],
             ephemeral: true
         });
 
@@ -121,7 +121,7 @@ module.exports = {
 
                 }
             }
-        } catch (e) {
+        } catch(e) {
             return interaction.reply({
                 embeds: [new EmbedBuilder()
                     .setColor("DarkRed")
