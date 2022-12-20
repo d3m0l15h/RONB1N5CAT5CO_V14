@@ -44,7 +44,6 @@ client.distube = new DisTube(client, {
     leaveOnEmpty: true,
     leaveOnFinish: false,
     leaveOnStop: false,
-    nsfw: true,
     plugins: [
         new SpotifyPlugin({ emitEventsAfterFetching: true }),
         new SoundCloudPlugin(),
